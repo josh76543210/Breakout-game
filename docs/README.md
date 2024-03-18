@@ -38,6 +38,14 @@ If you miss the ball, your score and the blocks will reset.
 - JavaScript
 - Vite
 
+### What I learned
+
+Using HTML5 canvas:
+
+```html
+<canvas id="canvas" width="800" height="600"></canvas>
+```
+
 ## Author
 
 - Twitter - [@josh76543210](https://www.twitter.com/josh76543210)
