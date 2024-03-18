@@ -20,6 +20,11 @@ const rightBtn = document.getElementById("move-right");
 /////////////////////////////
 // Variables
 
+// amount of angle change when ball hits paddle
+const bounceSensitivity = 4;
+
+const paddleWidth = 80;
+
 let score = 0;
 let gameStart = false;
 let gameOver = false;
@@ -65,7 +70,7 @@ const brickInfo = {
 const paddle = {
   x: canvas.width / 2 - 40,
   y: canvas.height - 20,
-  w: 80,
+  w: paddleWidth,
   h: 10,
   speed: 8,
   dx: 0,
@@ -242,6 +247,10 @@ function moveBall() {
     ball.y + ball.size > paddle.y
   ) {
     ball.dy *= -1;
+    // range the contact with paddle from -1 to 1 (0 is middle of paddle)
+    const paddleContact = (ball.x - paddle.x - 100) / 100;
+    // console.log(paddleContact);
+    ball.dx += paddleContact * bounceSensitivity;
   }
 
   // brick collision
@@ -322,7 +331,7 @@ function update() {
   }
 
   if (gameOver) {
-    console.log("GAMEOVER");
+    // console.log("GAMEOVER");
 
     showGameStartBox();
 
@@ -332,7 +341,7 @@ function update() {
   }
 
   if (gameWin) {
-    console.log("You Win!");
+    // console.log("You Win!");
 
     showGameStartBox();
 
@@ -341,7 +350,7 @@ function update() {
     return;
   }
 
-  console.log("update");
+  // console.log("update");
 
   // move everything
   movePaddle();
@@ -414,7 +423,7 @@ function showGameStartBox() {
     // mouse position on canvas
     const x = e.pageX - canvasLeft;
     const y = e.pageY - canvasTop;
-    console.log("page", x, y);
+    // console.log("page", x, y);
 
     // if mouse is on button
     if (155 < x && x < 344 && 162 < y && y < 211) {
