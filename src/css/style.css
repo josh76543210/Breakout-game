@@ -14,6 +14,7 @@ body {
   font-weight: 400;
   background-color: #0095dd;
   min-height: 100vh;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -71,9 +72,10 @@ canvas {
   z-index: 10;
   background-color: #333;
   color: #fff;
+  height: 100%;
+  width: 100%;
   min-height: 100vh;
-  width: calc((400 / 16) * 1rem);
-  max-width: 100%;
+  max-width: calc((400 / 16) * 1rem);
   padding: calc((20 / 16) * 1rem);
   line-height: 1.5;
   transform: translateX(calc((-400 / 16) * 1rem));
