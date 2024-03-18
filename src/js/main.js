@@ -14,6 +14,8 @@ const closeBtn = document.getElementById("close-btn");
 const rulesEl = document.getElementById("rules");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const leftBtn = document.getElementById("move-left");
+const rightBtn = document.getElementById("move-right");
 
 /////////////////////////////
 // Variables
@@ -80,13 +82,33 @@ closeBtn.addEventListener("click", () => {
   rulesEl.classList.remove("show");
 });
 
+// move left button is pressed
+leftBtn.addEventListener("mousedown", () => {
+  paddle.dx = -paddle.speed;
+});
+
+// move left button is released
+leftBtn.addEventListener("mouseup", () => {
+  paddle.dx = 0;
+});
+
+// move right button is pressed
+rightBtn.addEventListener("mousedown", () => {
+  paddle.dx = paddle.speed;
+});
+
+// move right button is released
+rightBtn.addEventListener("mouseup", () => {
+  paddle.dx = 0;
+});
+
 // key is down
 document.addEventListener("keydown", (e) => {
   // right arrow key
   if (e.key === "Right" || e.key === "ArrowRight") {
     paddle.dx = paddle.speed;
   }
-  // right arrow key
+  // left arrow key
   if (e.key === "Left" || e.key === "ArrowLeft") {
     paddle.dx = -paddle.speed;
   }

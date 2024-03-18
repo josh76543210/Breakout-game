@@ -19,13 +19,44 @@
     <div id="rules" class="rules">
       <h2>How to Play:</h2>
       <p>
-        Use your right and left keys to move the paddle to bounce the ball up
-        and break the blocks.
+        Use your right and left keys or the right and left buttons on the screen
+        to move the paddle to bounce the ball up and break the blocks.
       </p>
       <p>If you miss the ball, your score and the blocks will reset.</p>
       <button id="close-btn" class="btn btn--close">Close</button>
     </div>
 
     <canvas id="canvas" width="800" height="600"></canvas>
+
+    <div class="controls">
+      <button class="btn btn--controls btn--control-left" id="move-left">
+        <svg
+          width="720"
+          height="720"
+          viewBox="0 0 575.999971651997 575.9999732744195"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke="#fff"
+            fill="#fff"
+            d="m288 0-288 288h144v288h288v-288h144l-288-288z"
+          />
+        </svg>
+      </button>
+      <button class="btn btn--controls btn--control-right" id="move-right">
+        <svg
+          width="720"
+          height="720"
+          viewBox="0 0 575.999971651997 575.9999732744195"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke="#fff"
+            fill="#fff"
+            d="m288 0-288 288h144v288h288v-288h144l-288-288z"
+          />
+        </svg>
+      </button>
+    </div>
   </body>
 </html>

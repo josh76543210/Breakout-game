@@ -83,3 +83,29 @@ canvas {
 .rules.show {
   transform: translateX(calc((0 / 16) * 1rem));
 }
+
+.controls {
+  margin: 3rem auto;
+  width: calc((400 / 16) * 1rem);
+  max-width: 100%;
+
+  display: flex;
+}
+
+.btn--controls {
+  height: calc((100 / 16) * 1rem);
+  margin: 0 auto;
+}
+
+.btn--controls svg {
+  height: 80%;
+  width: 80%;
+}
+
+.btn--control-left svg {
+  transform: rotate(270deg);
+}
+
+.btn--control-right svg {
+  transform: rotate(90deg);
+}
