@@ -107,10 +107,12 @@ document.addEventListener("keydown", (e) => {
   // right arrow key
   if (e.key === "Right" || e.key === "ArrowRight") {
     paddle.dx = paddle.speed;
+    rightBtn.classList.add("btn--control-active");
   }
   // left arrow key
   if (e.key === "Left" || e.key === "ArrowLeft") {
     paddle.dx = -paddle.speed;
+    leftBtn.classList.add("btn--control-active");
   }
 });
 
@@ -123,6 +125,8 @@ document.addEventListener("keyup", (e) => {
     e.key === "ArrowLeft"
   ) {
     paddle.dx = 0;
+    rightBtn.classList.remove("btn--control-active");
+    leftBtn.classList.remove("btn--control-active");
   }
 });
 

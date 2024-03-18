@@ -97,6 +97,11 @@ canvas {
   margin: 0 auto;
 }
 
+.btn--controls.btn--control-active {
+  background-color: #222;
+  transform: scale(0.98);
+}
+
 .btn--controls svg {
   height: 80%;
   width: 80%;
