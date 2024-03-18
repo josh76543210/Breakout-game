@@ -1,0 +1,85 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* General Styling */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: calc((16 / 16) * 1rem);
+  font-weight: 400;
+  background-color: #0095dd;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: calc((45 / 16) * 1rem);
+  color: #fff;
+  margin: 3rem 0;
+}
+
+h2 {
+  margin: 2rem 0;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+canvas {
+  background: #f0f0f0;
+  border-radius: calc((5 / 16) * 1rem);
+
+  display: block;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: calc((5 / 16) * 1rem);
+  padding: calc((10 / 16) * 1rem) calc((20 / 16) * 1rem);
+}
+
+.btn:hover {
+  background-color: #222;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--rules {
+  position: absolute;
+  top: calc((30 / 16) * 1rem);
+  left: calc((30 / 16) * 1rem);
+}
+
+.rules {
+  background-color: #333;
+  color: #fff;
+  min-height: 100vh;
+  width: calc((400 / 16) * 1rem);
+  padding: calc((20 / 16) * 1rem);
+  line-height: 1.5;
+  transform: translateX(calc((-400 / 16) * 1rem));
+  transition: transform 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rules.show {
+  transform: translateX(calc((0 / 16) * 1rem));
+}

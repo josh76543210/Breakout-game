@@ -1,0 +1,30 @@
+/**********************/
+/* Footer media query */
+/*     over 368px     */
+/**********************/
+@media only screen and (min-width: 23em) {
+}
+
+/**********************/
+/*     over 480px     */
+/**********************/
+@media only screen and (min-width: 30em) {
+}
+
+/**********************/
+/*     over 640px     */
+/**********************/
+@media only screen and (min-width: 43em) {
+}
+
+/**********************/
+/*     over 928px     */
+/**********************/
+@media only screen and (min-width: 58em) {
+}
+
+/***********************/
+/*     over 1120px     */
+/***********************/
+@media only screen and (min-width: 70em) {
+}
