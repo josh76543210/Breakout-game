@@ -73,6 +73,7 @@ canvas {
   color: #fff;
   min-height: 100vh;
   width: calc((400 / 16) * 1rem);
+  max-width: 100%;
   padding: calc((20 / 16) * 1rem);
   line-height: 1.5;
   transform: translateX(calc((-400 / 16) * 1rem));
