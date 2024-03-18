@@ -3,6 +3,18 @@
 /*     over 368px     */
 /**********************/
 @media only screen and (min-width: 23em) {
+  h1 {
+    font-size: calc((45 / 16) * 1rem);
+  }
+
+  .controls {
+    gap: calc((40 / 16) * 1rem);
+  }
+
+  .btn--controls svg {
+    height: calc((60 / 16) * 1rem);
+    width: calc((60 / 16) * 1rem);
+  }
 }
 
 /**********************/
@@ -16,12 +28,7 @@
 /**********************/
 @media only screen and (min-width: 43em) {
   .controls {
-    width: calc((300 / 16) * 1rem);
-  }
-
-  .btn--controls {
-    height: calc((75 / 16) * 1rem);
-    margin: 0 auto;
+    gap: calc((80 / 16) * 1rem);
   }
 }
 

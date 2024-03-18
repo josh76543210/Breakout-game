@@ -14,7 +14,6 @@ body {
   font-weight: 400;
   background-color: #0095dd;
   min-height: 100vh;
-  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -23,7 +22,7 @@ body {
 }
 
 h1 {
-  font-size: calc((45 / 16) * 1rem);
+  font-size: calc((28 / 16) * 1rem);
   color: #fff;
   margin: 6rem 0 3rem;
 }
@@ -89,14 +88,15 @@ canvas {
 
 .controls {
   margin: 3rem auto;
-  width: calc((400 / 16) * 1rem);
+  width: calc((100 / 16) * 1rem);
   max-width: 100%;
 
   display: flex;
+  justify-content: center;
+  gap: calc((20 / 16) * 1rem);
 }
 
 .btn--controls {
-  height: calc((100 / 16) * 1rem);
   margin: 0 auto;
 }
 
@@ -106,8 +106,8 @@ canvas {
 }
 
 .btn--controls svg {
-  height: 80%;
-  width: 80%;
+  height: calc((30 / 16) * 1rem);
+  width: calc((30 / 16) * 1rem);
 }
 
 .btn--control-left svg {
