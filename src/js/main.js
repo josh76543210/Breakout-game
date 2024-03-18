@@ -21,7 +21,7 @@ const rightBtn = document.getElementById("move-right");
 // Variables
 
 // amount of angle change when ball hits paddle
-const bounceSensitivity = 4;
+const bounceSensitivity = 1;
 
 const paddleWidth = 80;
 
@@ -29,6 +29,8 @@ let score = 0;
 let gameStart = false;
 let gameOver = false;
 let gameWin = false;
+
+let brickDestroyed = false;
 
 const brickRowCount = 9;
 const brickColumnCount = 5;
@@ -265,25 +267,19 @@ function moveBall() {
         ) {
           // hide brick
           brick.visible = false;
+          brickDestroyed = true;
 
           increaseScore();
 
-          // console.log("Ball: ", ball.x, ball.y);
-          // console.log("Brick: ", brick.x, brick.y);
-
-          // change direction
-          // collision is on top or bottom
           if (
-            (ball.y - ball.size < brick.y &&
-              ball.y + ball.size - 5 < brick.y) ||
-            (ball.y + ball.size > brick.y + brick.h &&
-              ball.y - ball.size + 5 > brick.y + brick.h)
+            brick.y + brick.h - (ball.y - ball.size) > 6 &&
+            ball.y + ball.size - brick.y > 6
           ) {
-            ball.dy *= -1;
-          }
-          // collision is on left or right
-          else {
             ball.dx *= -1;
+            brickDestroyed = false;
+          } else {
+            ball.dy *= -1;
+            brickDestroyed = false;
           }
         }
       }
