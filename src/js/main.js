@@ -21,9 +21,24 @@ const rightBtn = document.getElementById("move-right");
 // Variables
 
 let score = 0;
+let gameStart = false;
+let gameOver = false;
 
 const brickRowCount = 9;
 const brickColumnCount = 5;
+
+// create textbox props
+const textBox = {
+  x: canvas.width / 2 - 150,
+  y: canvas.height / 2 - 40,
+  w: 300,
+  h: 80,
+  text: {
+    content: "Start New Game",
+    x: canvas.width / 2 - 85,
+    y: canvas.height / 2 + 8,
+  },
+};
 
 // create ball props
 const ball = {
@@ -156,6 +171,13 @@ function drawScore() {
   ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
 }
 
+// draw score on canvas
+function drawGameOver() {
+  ctx.fillStyle = "#0095dd";
+  ctx.font = "bold 45px Arial";
+  ctx.fillText("Game Over", canvas.width / 2 - 120, 200);
+}
+
 // draw bricks on canvas
 function drawBricks() {
   bricks.forEach((column) => {
@@ -200,7 +222,9 @@ function moveBall() {
   // wall collision (bottom) - lose the game
   if (ball.y + ball.size > canvas.height) {
     showAllbricks();
+    originBallAndPaddle();
     score = 0;
+    gameOver = true;
   }
 
   // paddle collision
@@ -281,6 +305,24 @@ function draw() {
 
 // update canvas drawing and animation
 function update() {
+  if (!gameStart) {
+    showGameStartBox();
+
+    return;
+  }
+
+  if (gameOver) {
+    console.log("GAMEOVER");
+
+    showGameStartBox();
+
+    drawGameOver();
+
+    return;
+  }
+
+  console.log("update");
+
   // move everything
   movePaddle();
   moveBall();
@@ -290,4 +332,88 @@ function update() {
 
   // animate
   requestAnimationFrame(update);
+}
+
+function canvasClick(e) {
+  // canvas offset
+  const canvasLeft = canvas.offsetLeft + canvas.clientLeft;
+  const canvasTop = canvas.offsetTop + canvas.clientTop;
+
+  // mouse position on canvas
+  const x = e.pageX - canvasLeft;
+  const y = e.pageY - canvasTop;
+  // console.log("page", x, y);
+
+  // if mouse is on button
+  if (155 < x && x < 344 && 162 < y && y < 211) {
+    gameStart = true;
+    gameOver = false;
+
+    removeCanvasEvents();
+
+    // draw everything
+    draw();
+
+    // start game after 3 seconds
+    setTimeout(update, 3000);
+  }
+}
+
+// remove canvas events
+function removeCanvasEvents() {
+  canvas.removeEventListener("click", canvasClick);
+  document.onmousemove = null;
+  canvas.style.cursor = "default";
+}
+
+// show game-start-box
+function showGameStartBox() {
+  // clear canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // draw start-game-box
+  ctx.beginPath();
+  ctx.roundRect(textBox.x, textBox.y, textBox.w, textBox.h, 5);
+  ctx.fillStyle = "#0095dd";
+  ctx.fill();
+  ctx.closePath();
+
+  // draw start-game-text
+  ctx.fillStyle = "#fff";
+  ctx.font = "bold 24px Arial";
+  ctx.fillText(textBox.text.content, textBox.text.x, textBox.text.y);
+
+  // add hover cursor to start-game-box
+  document.onmousemove = (e) => {
+    // canvas offset
+    const canvasLeft = canvas.offsetLeft + canvas.clientLeft;
+    const canvasTop = canvas.offsetTop + canvas.clientTop;
+
+    // mouse position on canvas
+    const x = e.pageX - canvasLeft;
+    const y = e.pageY - canvasTop;
+    console.log("page", x, y);
+
+    // if mouse is on button
+    if (155 < x && x < 344 && 162 < y && y < 211) {
+      canvas.style.cursor = "pointer";
+    } else {
+      canvas.style.cursor = "default";
+    }
+  };
+
+  // Listen for mouse clicks
+  canvas.addEventListener("click", canvasClick);
+}
+
+// position ball and paddle to origin
+function originBallAndPaddle() {
+  ball.x = canvas.width / 2;
+  ball.y = canvas.height / 2;
+  ball.dx = 4;
+  ball.dy = -4;
+
+  paddle.x = canvas.width / 2 - 40;
+  paddle.y = canvas.height - 20;
+  paddle.dx = 0;
 }
