@@ -15,6 +15,14 @@
 /*     over 640px     */
 /**********************/
 @media only screen and (min-width: 43em) {
+  .controls {
+    width: calc((300 / 16) * 1rem);
+  }
+
+  .btn--controls {
+    height: calc((75 / 16) * 1rem);
+    margin: 0 auto;
+  }
 }
 
 /**********************/
