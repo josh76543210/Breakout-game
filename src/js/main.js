@@ -23,6 +23,7 @@ const rightBtn = document.getElementById("move-right");
 let score = 0;
 let gameStart = false;
 let gameOver = false;
+let gameWin = false;
 
 const brickRowCount = 9;
 const brickColumnCount = 5;
@@ -171,11 +172,18 @@ function drawScore() {
   ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
 }
 
-// draw score on canvas
+// draw "game over" on canvas
 function drawGameOver() {
   ctx.fillStyle = "#0095dd";
   ctx.font = "bold 45px Arial";
   ctx.fillText("Game Over", canvas.width / 2 - 120, 200);
+}
+
+// draw "you win" on canvas
+function drawWin() {
+  ctx.fillStyle = "#0095dd";
+  ctx.font = "bold 45px Arial";
+  ctx.fillText("You Win!", canvas.width / 2 - 90, 200);
 }
 
 // draw bricks on canvas
@@ -281,7 +289,9 @@ function increaseScore() {
   // check of win
   if (score === brickRowCount * brickColumnCount) {
     showAllbricks();
+    originBallAndPaddle();
     score = 0;
+    gameWin = true;
   }
 }
 
@@ -321,6 +331,16 @@ function update() {
     return;
   }
 
+  if (gameWin) {
+    console.log("You Win!");
+
+    showGameStartBox();
+
+    drawWin();
+
+    return;
+  }
+
   console.log("update");
 
   // move everything
@@ -348,6 +368,8 @@ function canvasClick(e) {
   if (155 < x && x < 344 && 162 < y && y < 211) {
     gameStart = true;
     gameOver = false;
+    gameWin = false;
+    originBallAndPaddle();
 
     removeCanvasEvents();
 
