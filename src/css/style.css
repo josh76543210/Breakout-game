@@ -101,6 +101,9 @@ canvas {
 
 .btn--controls {
   margin: 0 auto;
+
+  display: grid;
+  place-content: center;
 }
 
 .btn--controls.btn--control-active {
