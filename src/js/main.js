@@ -108,6 +108,16 @@ closeBtn.addEventListener("click", () => {
   rulesEl.classList.remove("show");
 });
 
+// click move left button
+leftBtn.addEventListener("click", () => {
+  paddle.dx = -paddle.speed;
+});
+
+// click move right button
+rightBtn.addEventListener("click", () => {
+  paddle.dx = paddle.speed;
+});
+
 // move left button is pressed
 // leftBtn.addEventListener("touchdown", () => {
 //   paddle.dx = -paddle.speed;
@@ -115,10 +125,10 @@ closeBtn.addEventListener("click", () => {
 // leftBtn.addEventListener("mousedown", () => {
 //   paddle.dx = -paddle.speed;
 // });
-leftBtn.addEventListener("focusin", () => {
-  paddle.dx = -paddle.speed;
-  console.log("LEFT");
-});
+// leftBtn.addEventListener("focusin", () => {
+//   paddle.dx = -paddle.speed;
+//   console.log("LEFT");
+// });
 
 // move left button is released
 // leftBtn.addEventListener("touchup", () => {
@@ -127,10 +137,10 @@ leftBtn.addEventListener("focusin", () => {
 // leftBtn.addEventListener("mouseup", () => {
 //   paddle.dx = 0;
 // });
-leftBtn.addEventListener("focusout", () => {
-  paddle.dx = 0;
-  console.log("NOT LEFT");
-});
+// leftBtn.addEventListener("focusout", () => {
+//   paddle.dx = 0;
+//   console.log("NOT LEFT");
+// });
 
 // move right button is pressed
 // rightBtn.addEventListener("touchdown", () => {
@@ -139,9 +149,9 @@ leftBtn.addEventListener("focusout", () => {
 // rightBtn.addEventListener("mousedown", () => {
 //   paddle.dx = paddle.speed;
 // });
-rightBtn.addEventListener("focusin", () => {
-  paddle.dx = paddle.speed;
-});
+// rightBtn.addEventListener("focusin", () => {
+//   paddle.dx = paddle.speed;
+// });
 
 // move right button is released
 // rightBtn.addEventListener("touchup", () => {
@@ -150,9 +160,9 @@ rightBtn.addEventListener("focusin", () => {
 // rightBtn.addEventListener("mouseup", () => {
 //   paddle.dx = 0;
 // });
-rightBtn.addEventListener("focusout", () => {
-  paddle.dx = 0;
-});
+// rightBtn.addEventListener("focusout", () => {
+//   paddle.dx = 0;
+// });
 
 // key is down
 document.addEventListener("keydown", (e) => {
@@ -381,8 +391,6 @@ function update() {
   // move everything
   movePaddle();
   moveBall();
-
-  paddle.dx = -paddle.speed;
 
   // draw everything
   draw();
