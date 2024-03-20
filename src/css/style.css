@@ -111,6 +111,10 @@ canvas {
   transform: scale(0.98);
 }
 
+/* .btn--controls:focus {
+  background-color: #555;
+} */
+
 .btn--controls svg {
   height: calc((30 / 16) * 1rem);
   width: calc((30 / 16) * 1rem);

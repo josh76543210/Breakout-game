@@ -92,6 +92,9 @@ for (let i = 0; i < brickRowCount; i++) {
 /////////////////////////////
 // Run
 update();
+setInterval(() => {
+  console.log(document.activeElement);
+}, 100);
 
 /////////////////////////////
 // Event-listeners
@@ -106,34 +109,47 @@ closeBtn.addEventListener("click", () => {
 });
 
 // move left button is pressed
-leftBtn.addEventListener("touchdown", () => {
+// leftBtn.addEventListener("touchdown", () => {
+//   paddle.dx = -paddle.speed;
+// });
+// leftBtn.addEventListener("mousedown", () => {
+//   paddle.dx = -paddle.speed;
+// });
+leftBtn.addEventListener("focusin", () => {
   paddle.dx = -paddle.speed;
-});
-leftBtn.addEventListener("mousedown", () => {
-  paddle.dx = -paddle.speed;
+  console.log("LEFT");
 });
 
 // move left button is released
-leftBtn.addEventListener("touchup", () => {
-  paddle.dx = 0;
-});
-leftBtn.addEventListener("mouseup", () => {
+// leftBtn.addEventListener("touchup", () => {
+//   paddle.dx = 0;
+// });
+// leftBtn.addEventListener("mouseup", () => {
+//   paddle.dx = 0;
+// });
+leftBtn.addEventListener("focusout", () => {
   paddle.dx = 0;
 });
 
 // move right button is pressed
-rightBtn.addEventListener("touchdown", () => {
-  paddle.dx = paddle.speed;
-});
-rightBtn.addEventListener("mousedown", () => {
+// rightBtn.addEventListener("touchdown", () => {
+//   paddle.dx = paddle.speed;
+// });
+// rightBtn.addEventListener("mousedown", () => {
+//   paddle.dx = paddle.speed;
+// });
+rightBtn.addEventListener("focusin", () => {
   paddle.dx = paddle.speed;
 });
 
 // move right button is released
-rightBtn.addEventListener("touchup", () => {
-  paddle.dx = 0;
-});
-rightBtn.addEventListener("mouseup", () => {
+// rightBtn.addEventListener("touchup", () => {
+//   paddle.dx = 0;
+// });
+// rightBtn.addEventListener("mouseup", () => {
+//   paddle.dx = 0;
+// });
+rightBtn.addEventListener("focusout", () => {
   paddle.dx = 0;
 });
 
