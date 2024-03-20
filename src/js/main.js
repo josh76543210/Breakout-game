@@ -452,6 +452,8 @@ function removeCanvasEvents() {
 
 // show game-start-box
 function showGameStartBox() {
+  draw();
+  /*
   // clear canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -466,10 +468,9 @@ function showGameStartBox() {
   ctx.fillStyle = "#fff";
   ctx.font = "bold 24px Arial";
   ctx.fillText(textBox.text.content, textBox.text.x, textBox.text.y);
-
+  */
   // add hover cursor to start-game-box
   // document.addEventListener("onmousemove", canvasMove);
-
   // Listen for mouse clicks
   // canvas.addEventListener("click", canvasClick);
 }
