@@ -109,9 +109,9 @@ closeBtn.addEventListener("click", () => {
 });
 
 // move left button is pressed
-// leftBtn.addEventListener("touchdown", () => {
-//   paddle.dx = -paddle.speed;
-// });
+leftBtn.addEventListener("touchdown", () => {
+  paddle.dx = -paddle.speed;
+});
 // leftBtn.addEventListener("mousedown", () => {
 //   paddle.dx = -paddle.speed;
 // });
@@ -129,12 +129,13 @@ leftBtn.addEventListener("focusin", () => {
 // });
 leftBtn.addEventListener("focusout", () => {
   paddle.dx = 0;
+  console.log("NOT LEFT");
 });
 
 // move right button is pressed
-// rightBtn.addEventListener("touchdown", () => {
-//   paddle.dx = paddle.speed;
-// });
+rightBtn.addEventListener("touchdown", () => {
+  paddle.dx = paddle.speed;
+});
 // rightBtn.addEventListener("mousedown", () => {
 //   paddle.dx = paddle.speed;
 // });
