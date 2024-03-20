@@ -348,11 +348,11 @@ function update() {
   }
 
   // console.log("update");
-
+*/
   // move everything
   movePaddle();
   moveBall();
-*/
+
   // draw everything
   draw();
 
