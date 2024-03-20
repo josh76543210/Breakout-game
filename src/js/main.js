@@ -106,21 +106,33 @@ closeBtn.addEventListener("click", () => {
 });
 
 // move left button is pressed
+leftBtn.addEventListener("touchdown", () => {
+  paddle.dx = -paddle.speed;
+});
 leftBtn.addEventListener("mousedown", () => {
   paddle.dx = -paddle.speed;
 });
 
 // move left button is released
+leftBtn.addEventListener("touchup", () => {
+  paddle.dx = 0;
+});
 leftBtn.addEventListener("mouseup", () => {
   paddle.dx = 0;
 });
 
 // move right button is pressed
+rightBtn.addEventListener("touchdown", () => {
+  paddle.dx = paddle.speed;
+});
 rightBtn.addEventListener("mousedown", () => {
   paddle.dx = paddle.speed;
 });
 
 // move right button is released
+rightBtn.addEventListener("touchup", () => {
+  paddle.dx = 0;
+});
 rightBtn.addEventListener("mouseup", () => {
   paddle.dx = 0;
 });
