@@ -93,6 +93,8 @@ for (let i = 0; i < brickRowCount; i++) {
 // Run
 update();
 */
+drawBall();
+
 /////////////////////////////
 // Event-listeners
 // click open rules button
