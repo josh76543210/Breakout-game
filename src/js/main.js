@@ -452,27 +452,24 @@ function removeCanvasEvents() {
 
 // show game-start-box
 function showGameStartBox() {
+  // clear canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // draw start-game-box
   ctx.beginPath();
-  ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
+  ctx.rect(textBox.x, textBox.y, textBox.w, textBox.h);
   ctx.fillStyle = "#0095dd";
   ctx.fill();
   ctx.closePath();
-  // clear canvas
-  // ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // draw start-game-box
-  // ctx.beginPath();
-  // ctx.roundRect(textBox.x, textBox.y, textBox.w, textBox.h, 5);
-  // ctx.fillStyle = "#0095dd";
-  // ctx.fill();
-  // ctx.closePath();
   // draw start-game-text
-  // ctx.fillStyle = "#fff";
-  // ctx.font = "bold 24px Arial";
-  // ctx.fillText(textBox.text.content, textBox.text.x, textBox.text.y);
+  ctx.fillStyle = "#fff";
+  ctx.font = "bold 24px Arial";
+  ctx.fillText(textBox.text.content, textBox.text.x, textBox.text.y);
+
   // add hover cursor to start-game-box
   // document.addEventListener("onmousemove", canvasMove);
   // Listen for mouse clicks
-  // canvas.addEventListener("click", canvasClick);
+  canvas.addEventListener("click", canvasClick);
 }
 
 // position ball and paddle to origin
