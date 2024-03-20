@@ -12,7 +12,7 @@ import "../css/queries.css";
 const rulesBtn = document.getElementById("rules-btn");
 const closeBtn = document.getElementById("close-btn");
 const rulesEl = document.getElementById("rules");
-/*const canvas = document.getElementById("canvas");
+const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const leftBtn = document.getElementById("move-left");
 const rightBtn = document.getElementById("move-right");
@@ -88,7 +88,7 @@ for (let i = 0; i < brickRowCount; i++) {
     bricks[i][j] = { x, y, ...brickInfo };
   }
 }
-
+/*
 /////////////////////////////
 // Run
 update();
@@ -103,7 +103,7 @@ rulesBtn.addEventListener("click", () => {
 // click close rules button
 closeBtn.addEventListener("click", () => {
   rulesEl.classList.remove("show");
-}); /*
+});
 
 // move left button is pressed
 leftBtn.addEventListener("mousedown", () => {
@@ -152,7 +152,7 @@ document.addEventListener("keyup", (e) => {
     leftBtn.classList.remove("btn--control-active");
   }
 });
-
+/*
 /////////////////////////////
 // Functions
 // draw ball on canvas
