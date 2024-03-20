@@ -320,6 +320,7 @@ function draw() {
 
 // update canvas drawing and animation
 function update() {
+  /*
   if (!gameStart) {
     showGameStartBox();
 
@@ -351,7 +352,7 @@ function update() {
   // move everything
   movePaddle();
   moveBall();
-
+*/
   // draw everything
   draw();
 
