@@ -445,9 +445,9 @@ function canvasClick(e) {
 
 // remove canvas events
 function removeCanvasEvents() {
-  canvas.removeEventListener("click", canvasClick);
+  // canvas.removeEventListener("click", canvasClick);
   // document.removeEventListener("onmousemove", canvasMove);
-  canvas.style.cursor = "default";
+  // canvas.style.cursor = "default";
 }
 
 // show game-start-box
@@ -471,7 +471,7 @@ function showGameStartBox() {
   // document.addEventListener("onmousemove", canvasMove);
 
   // Listen for mouse clicks
-  canvas.addEventListener("click", canvasClick);
+  // canvas.addEventListener("click", canvasClick);
 }
 
 // position ball and paddle to origin
