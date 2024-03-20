@@ -8,11 +8,11 @@ import "../css/style.css";
 import "../css/queries.css";
 
 /////////////////////////////
-// Elements
+// Elements*/
 const rulesBtn = document.getElementById("rules-btn");
 const closeBtn = document.getElementById("close-btn");
 const rulesEl = document.getElementById("rules");
-const canvas = document.getElementById("canvas");
+/*const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const leftBtn = document.getElementById("move-left");
 const rightBtn = document.getElementById("move-right");
@@ -92,7 +92,7 @@ for (let i = 0; i < brickRowCount; i++) {
 /////////////////////////////
 // Run
 update();
-
+*/
 /////////////////////////////
 // Event-listeners
 // click open rules button
@@ -103,7 +103,7 @@ rulesBtn.addEventListener("click", () => {
 // click close rules button
 closeBtn.addEventListener("click", () => {
   rulesEl.classList.remove("show");
-});
+}); /*
 
 // move left button is pressed
 leftBtn.addEventListener("mousedown", () => {
