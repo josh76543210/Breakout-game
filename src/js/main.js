@@ -12,6 +12,7 @@ import "../css/queries.css";
 const rulesBtn = document.getElementById("rules-btn");
 const closeBtn = document.getElementById("close-btn");
 const rulesEl = document.getElementById("rules");
+const newGameBtn = document.getElementById("new-game-btn");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const leftBtn = document.getElementById("move-left");
@@ -98,6 +99,25 @@ update();
 
 /////////////////////////////
 // Event-listeners
+// click start new game button
+newGameBtn.addEventListener("click", (e) => {
+  gameStart = true;
+  gameOver = false;
+  gameWin = false;
+  originBallAndPaddle();
+
+  removeCanvasEvents();
+
+  // draw everything
+  draw();
+
+  // start game after 3 seconds
+  setTimeout(update, 3000);
+
+  // remove button
+  e.target.classList.add("hidden");
+});
+
 // click open rules button
 rulesBtn.addEventListener("click", () => {
   rulesEl.classList.add("show");
@@ -220,16 +240,16 @@ function drawScore() {
 
 // draw "game over" on canvas
 function drawGameOver() {
-  ctx.fillStyle = "#0095dd";
+  ctx.fillStyle = "#000";
   ctx.font = "bold 45px Arial";
-  ctx.fillText("Game Over", canvas.width / 2 - 120, 200);
+  ctx.fillText("Game Over", canvas.width / 2 - 120, 400);
 }
 
 // draw "you win" on canvas
 function drawWin() {
-  ctx.fillStyle = "#0095dd";
+  ctx.fillStyle = "#000";
   ctx.font = "bold 45px Arial";
-  ctx.fillText("You Win!", canvas.width / 2 - 90, 200);
+  ctx.fillText("You Win!", canvas.width / 2 - 90, 400);
 }
 
 // draw bricks on canvas
@@ -360,30 +380,36 @@ function draw() {
 // update canvas drawing and animation
 function update() {
   if (!gameStart) {
-    showGameStartBox();
+    return;
+  }
+
+  if (gameOver) {
+    // console.log("GAMEOVER");
+
+    // showGameStartBox();
+
+    // show new game button
+    newGameBtn.classList.remove("hidden");
+
+    // write game-over message on canvas
+    drawGameOver();
 
     return;
   }
 
-  // if (gameOver) {
-  //   // console.log("GAMEOVER");
+  if (gameWin) {
+    // console.log("You Win!");
 
-  //   showGameStartBox();
+    // showGameStartBox();
 
-  //   drawGameOver();
+    // show new game button
+    newGameBtn.classList.remove("hidden");
 
-  //   return;
-  // }
+    // write win message on canvas
+    drawWin();
 
-  // if (gameWin) {
-  //   // console.log("You Win!");
-
-  //   showGameStartBox();
-
-  //   drawWin();
-
-  //   return;
-  // }
+    return;
+  }
 
   // console.log("update");
 
