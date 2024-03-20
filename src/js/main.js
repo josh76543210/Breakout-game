@@ -386,10 +386,28 @@ function canvasClick(e) {
   }
 }
 
+function canvasMove(e) {
+  // canvas offset
+  const canvasLeft = canvas.offsetLeft + canvas.clientLeft;
+  const canvasTop = canvas.offsetTop + canvas.clientTop;
+
+  // mouse position on canvas
+  const x = e.pageX - canvasLeft;
+  const y = e.pageY - canvasTop;
+  // console.log("page", x, y);
+
+  // if mouse is on button
+  if (155 < x && x < 344 && 162 < y && y < 211) {
+    canvas.style.cursor = "pointer";
+  } else {
+    canvas.style.cursor = "default";
+  }
+}
+
 // remove canvas events
 function removeCanvasEvents() {
   canvas.removeEventListener("click", canvasClick);
-  document.onmousemove = null;
+  document.removeEventListener("onmousemove", canvasMove);
   canvas.style.cursor = "default";
 }
 
@@ -411,23 +429,7 @@ function showGameStartBox() {
   ctx.fillText(textBox.text.content, textBox.text.x, textBox.text.y);
 
   // add hover cursor to start-game-box
-  document.onmousemove = (e) => {
-    // canvas offset
-    const canvasLeft = canvas.offsetLeft + canvas.clientLeft;
-    const canvasTop = canvas.offsetTop + canvas.clientTop;
-
-    // mouse position on canvas
-    const x = e.pageX - canvasLeft;
-    const y = e.pageY - canvasTop;
-    // console.log("page", x, y);
-
-    // if mouse is on button
-    if (155 < x && x < 344 && 162 < y && y < 211) {
-      canvas.style.cursor = "pointer";
-    } else {
-      canvas.style.cursor = "default";
-    }
-  };
+  document.addEventListener("onmousemove", canvasMove);
 
   // Listen for mouse clicks
   canvas.addEventListener("click", canvasClick);
