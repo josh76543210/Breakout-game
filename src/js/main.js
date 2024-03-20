@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 
 /////////////////////////////
 // Imports
@@ -446,3 +446,4 @@ function originBallAndPaddle() {
   paddle.y = canvas.height - 20;
   paddle.dx = 0;
 }
+*/
