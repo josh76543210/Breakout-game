@@ -1,14 +1,14 @@
-/*"use strict";
+"use strict";
 
 /////////////////////////////
 // Imports
 
-import "../css/reset.css";
-import "../css/style.css";
-import "../css/queries.css";
+// import "../css/reset.css";
+// import "../css/style.css";
+// import "../css/queries.css";
 
 /////////////////////////////
-// Elements*/
+// Elements
 const rulesBtn = document.getElementById("rules-btn");
 const closeBtn = document.getElementById("close-btn");
 const rulesEl = document.getElementById("rules");
@@ -92,10 +92,8 @@ for (let i = 0; i < brickRowCount; i++) {
 
 /////////////////////////////
 // Run
+draw();
 update();
-// setInterval(() => {
-//   console.log(document.activeElement);
-// }, 100);
 
 /////////////////////////////
 // Event-listeners
@@ -105,8 +103,6 @@ newGameBtn.addEventListener("click", (e) => {
   gameOver = false;
   gameWin = false;
   originBallAndPaddle();
-
-  removeCanvasEvents();
 
   // draw everything
   draw();
@@ -137,52 +133,6 @@ leftBtn.addEventListener("click", () => {
 rightBtn.addEventListener("click", () => {
   paddle.dx = paddle.speed;
 });
-
-// move left button is pressed
-// leftBtn.addEventListener("touchdown", () => {
-//   paddle.dx = -paddle.speed;
-// });
-// leftBtn.addEventListener("mousedown", () => {
-//   paddle.dx = -paddle.speed;
-// });
-// leftBtn.addEventListener("focusin", () => {
-//   paddle.dx = -paddle.speed;
-//   console.log("LEFT");
-// });
-
-// move left button is released
-// leftBtn.addEventListener("touchup", () => {
-//   paddle.dx = 0;
-// });
-// leftBtn.addEventListener("mouseup", () => {
-//   paddle.dx = 0;
-// });
-// leftBtn.addEventListener("focusout", () => {
-//   paddle.dx = 0;
-//   console.log("NOT LEFT");
-// });
-
-// move right button is pressed
-// rightBtn.addEventListener("touchdown", () => {
-//   paddle.dx = paddle.speed;
-// });
-// rightBtn.addEventListener("mousedown", () => {
-//   paddle.dx = paddle.speed;
-// });
-// rightBtn.addEventListener("focusin", () => {
-//   paddle.dx = paddle.speed;
-// });
-
-// move right button is released
-// rightBtn.addEventListener("touchup", () => {
-//   paddle.dx = 0;
-// });
-// rightBtn.addEventListener("mouseup", () => {
-//   paddle.dx = 0;
-// });
-// rightBtn.addEventListener("focusout", () => {
-//   paddle.dx = 0;
-// });
 
 // key is down
 document.addEventListener("keydown", (e) => {
@@ -384,10 +334,6 @@ function update() {
   }
 
   if (gameOver) {
-    // console.log("GAMEOVER");
-
-    // showGameStartBox();
-
     // show new game button
     newGameBtn.classList.remove("hidden");
 
@@ -398,10 +344,6 @@ function update() {
   }
 
   if (gameWin) {
-    // console.log("You Win!");
-
-    // showGameStartBox();
-
     // show new game button
     newGameBtn.classList.remove("hidden");
 
@@ -410,8 +352,6 @@ function update() {
 
     return;
   }
-
-  // console.log("update");
 
   // move everything
   movePaddle();
@@ -422,80 +362,6 @@ function update() {
 
   // animate
   requestAnimationFrame(update);
-}
-
-function canvasClick(e) {
-  // canvas offset
-  const canvasLeft = canvas.offsetLeft + canvas.clientLeft;
-  const canvasTop = canvas.offsetTop + canvas.clientTop;
-
-  // mouse position on canvas
-  const x = e.pageX - canvasLeft;
-  const y = e.pageY - canvasTop;
-  // console.log("page", x, y);
-
-  // if mouse is on button
-  if (155 < x && x < 344 && 162 < y && y < 211) {
-    gameStart = true;
-    gameOver = false;
-    gameWin = false;
-    originBallAndPaddle();
-
-    removeCanvasEvents();
-
-    // draw everything
-    draw();
-
-    // start game after 3 seconds
-    setTimeout(update, 3000);
-  }
-}
-
-// function canvasMove(e) {
-//   // canvas offset
-//   const canvasLeft = canvas.offsetLeft + canvas.clientLeft;
-//   const canvasTop = canvas.offsetTop + canvas.clientTop;
-
-//   // mouse position on canvas
-//   const x = e.pageX - canvasLeft;
-//   const y = e.pageY - canvasTop;
-//   // console.log("page", x, y);
-
-//   // if mouse is on button
-//   if (155 < x && x < 344 && 162 < y && y < 211) {
-//     canvas.style.cursor = "pointer";
-//   } else {
-//     canvas.style.cursor = "default";
-//   }
-// }
-
-// remove canvas events
-function removeCanvasEvents() {
-  canvas.removeEventListener("click", canvasClick);
-  // document.removeEventListener("onmousemove", canvasMove);
-  // canvas.style.cursor = "default";
-}
-
-// show game-start-box
-function showGameStartBox() {
-  // clear canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // draw start-game-box
-  ctx.beginPath();
-  ctx.rect(textBox.x, textBox.y, textBox.w, textBox.h);
-  ctx.fillStyle = "#0095dd";
-  ctx.fill();
-  ctx.closePath();
-  // draw start-game-text
-  ctx.fillStyle = "#fff";
-  ctx.font = "bold 24px Arial";
-  ctx.fillText(textBox.text.content, textBox.text.x, textBox.text.y);
-
-  // add hover cursor to start-game-box
-  // document.addEventListener("onmousemove", canvasMove);
-  // Listen for mouse clicks
-  canvas.addEventListener("click", canvasClick);
 }
 
 // position ball and paddle to origin
