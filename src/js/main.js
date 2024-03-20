@@ -93,8 +93,6 @@ for (let i = 0; i < brickRowCount; i++) {
 // Run
 update();
 */
-drawBall();
-
 /////////////////////////////
 // Event-listeners
 // click open rules button
@@ -360,6 +358,7 @@ function update() {
   // animate
   requestAnimationFrame(update);
 }
+*/
 
 function canvasClick(e) {
   // canvas offset
@@ -448,4 +447,3 @@ function originBallAndPaddle() {
   paddle.y = canvas.height - 20;
   paddle.dx = 0;
 }
-*/
