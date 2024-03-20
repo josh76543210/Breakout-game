@@ -92,9 +92,9 @@ for (let i = 0; i < brickRowCount; i++) {
 /////////////////////////////
 // Run
 update();
-setInterval(() => {
-  console.log(document.activeElement);
-}, 100);
+// setInterval(() => {
+//   console.log(document.activeElement);
+// }, 100);
 
 /////////////////////////////
 // Event-listeners
@@ -365,25 +365,25 @@ function update() {
     return;
   }
 
-  if (gameOver) {
-    // console.log("GAMEOVER");
+  // if (gameOver) {
+  //   // console.log("GAMEOVER");
 
-    showGameStartBox();
+  //   showGameStartBox();
 
-    drawGameOver();
+  //   drawGameOver();
 
-    return;
-  }
+  //   return;
+  // }
 
-  if (gameWin) {
-    // console.log("You Win!");
+  // if (gameWin) {
+  //   // console.log("You Win!");
 
-    showGameStartBox();
+  //   showGameStartBox();
 
-    drawWin();
+  //   drawWin();
 
-    return;
-  }
+  //   return;
+  // }
 
   // console.log("update");
 
