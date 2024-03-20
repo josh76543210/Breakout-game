@@ -88,11 +88,11 @@ for (let i = 0; i < brickRowCount; i++) {
     bricks[i][j] = { x, y, ...brickInfo };
   }
 }
-/*
+
 /////////////////////////////
 // Run
 update();
-*/
+
 /////////////////////////////
 // Event-listeners
 // click open rules button
@@ -317,7 +317,7 @@ function draw() {
   drawScore();
   drawBricks();
 }
-/*
+
 // update canvas drawing and animation
 function update() {
   if (!gameStart) {
@@ -358,7 +358,6 @@ function update() {
   // animate
   requestAnimationFrame(update);
 }
-*/
 
 function canvasClick(e) {
   // canvas offset
