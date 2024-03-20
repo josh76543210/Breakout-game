@@ -109,9 +109,9 @@ closeBtn.addEventListener("click", () => {
 });
 
 // move left button is pressed
-leftBtn.addEventListener("touchdown", () => {
-  paddle.dx = -paddle.speed;
-});
+// leftBtn.addEventListener("touchdown", () => {
+//   paddle.dx = -paddle.speed;
+// });
 // leftBtn.addEventListener("mousedown", () => {
 //   paddle.dx = -paddle.speed;
 // });
@@ -133,9 +133,9 @@ leftBtn.addEventListener("focusout", () => {
 });
 
 // move right button is pressed
-rightBtn.addEventListener("touchdown", () => {
-  paddle.dx = paddle.speed;
-});
+// rightBtn.addEventListener("touchdown", () => {
+//   paddle.dx = paddle.speed;
+// });
 // rightBtn.addEventListener("mousedown", () => {
 //   paddle.dx = paddle.speed;
 // });
@@ -381,6 +381,8 @@ function update() {
   // move everything
   movePaddle();
   moveBall();
+
+  paddle.dx = -paddle.speed;
 
   // draw everything
   draw();
