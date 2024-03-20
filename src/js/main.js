@@ -152,7 +152,7 @@ document.addEventListener("keyup", (e) => {
     leftBtn.classList.remove("btn--control-active");
   }
 });
-/*
+
 /////////////////////////////
 // Functions
 // draw ball on canvas
@@ -317,7 +317,7 @@ function draw() {
   drawScore();
   drawBricks();
 }
-
+/*
 // update canvas drawing and animation
 function update() {
   if (!gameStart) {
