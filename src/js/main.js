@@ -445,7 +445,7 @@ function canvasClick(e) {
 
 // remove canvas events
 function removeCanvasEvents() {
-  // canvas.removeEventListener("click", canvasClick);
+  canvas.removeEventListener("click", canvasClick);
   // document.removeEventListener("onmousemove", canvasMove);
   // canvas.style.cursor = "default";
 }
