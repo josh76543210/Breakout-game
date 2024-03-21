@@ -24,11 +24,28 @@
     <button id="rules-btn" class="btn btn--rules">Show Rules</button>
     <div id="rules" class="rules">
       <h2>How to Play:</h2>
+      <p>Click "Start New Game" to start the game.</p>
       <p>
-        Use your right and left keys or the right and left buttons on the screen
-        to move the paddle to bounce the ball up and break the blocks.
+        Move the paddle on the bottom of the game screen to keep the ball from
+        hitting the bottom.
       </p>
-      <p>If you miss the ball, your score and the blocks will reset.</p>
+      <p>If you miss the ball, it's game over!</p>
+      <p>
+        If the ball hits a brick that brick will be destroyed. Destroy all
+        bricks to win the game!
+      </p>
+      <h3>Controls:</h3>
+      <h4>Keyboard</h4>
+      <p>
+        Use your right and left keys to move the paddle to bounce the ball up
+        and break the blocks. Let go of the keys to stop the paddle.
+      </p>
+      <h3>Buttons</h3>
+      <p>
+        Use the right and left arrow buttons on the screen to move the paddle
+        and click the middle button to stop the paddle.
+      </p>
+
       <button id="close-btn" class="btn btn--close">Close</button>
     </div>
 
@@ -47,6 +64,16 @@
             fill="#fff"
             d="m288 0-288 288h144v288h288v-288h144l-288-288z"
           />
+        </svg>
+      </button>
+      <button class="btn btn--controls btn--control-stop" id="move-stop">
+        <svg
+          width="720"
+          height="720"
+          viewBox="0 0 575.999971651997 575.9999732744195"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="288" height="288" x="144" y="144" fill="#fff" />
         </svg>
       </button>
       <button class="btn btn--controls btn--control-right" id="move-right">

@@ -17,6 +17,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const leftBtn = document.getElementById("move-left");
 const rightBtn = document.getElementById("move-right");
+const stopBtn = document.getElementById("move-stop");
 
 /////////////////////////////
 // Variables
@@ -132,6 +133,11 @@ leftBtn.addEventListener("click", () => {
 // click move right button
 rightBtn.addEventListener("click", () => {
   paddle.dx = paddle.speed;
+});
+
+// click move right button
+stopBtn.addEventListener("click", () => {
+  paddle.dx = 0;
 });
 
 // key is down
