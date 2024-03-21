@@ -7,4 +7,5 @@ export default {
     emptyOutDir: true,
     target: "es2015",
   },
+  publicDir: "../public",
 };
