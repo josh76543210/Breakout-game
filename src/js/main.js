@@ -108,6 +108,21 @@ newGameBtn.addEventListener("click", (e) => {
   // draw everything
   draw();
 
+  // display countdown
+  // 3
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawNumber(3);
+  // 2
+  setTimeout(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawNumber(2);
+  }, 1000);
+  // 1
+  setTimeout(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawNumber(1);
+  }, 2000);
+
   // start game after 3 seconds
   setTimeout(update, 3000);
 
@@ -206,6 +221,13 @@ function drawWin() {
   ctx.fillStyle = "#000";
   ctx.font = "bold 45px Arial";
   ctx.fillText("You Win!", canvas.width / 2 - 90, 400);
+}
+
+// draw countdown number on canvas
+function drawNumber(num) {
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 45px Arial";
+  ctx.fillText(String(num), canvas.width / 2, canvas.height / 2);
 }
 
 // draw bricks on canvas
